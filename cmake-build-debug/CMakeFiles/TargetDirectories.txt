@@ -1,3 +1,0 @@
-/Users/kinanalfalah/Desktop/Summer/CPP/alfalakk/Project/JSONParser/cmake-build-debug/CMakeFiles/JSONParser.dir
-/Users/kinanalfalah/Desktop/Summer/CPP/alfalakk/Project/JSONParser/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kinanalfalah/Desktop/Summer/CPP/alfalakk/Project/JSONParser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
