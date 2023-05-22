@@ -1,0 +1,41 @@
+{
+  "bookstore": {
+    "name": "The Reading Corner",
+    "address": {
+      "street": "123 Main St",
+      "city": "Fiction Town",
+      "state": "NY",
+      "zip": "10001"
+    },
+    "books": [
+      {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "isbn": "9780446310789",
+        "copies": 10,
+        "genres": ["Classic", "Coming of Age"]
+      },
+      {
+        "title": "1984",
+        "author": "George Orwell",
+        "isbn": "9780451524935",
+        "copies": 3,
+        "genres": ["Classic", "Dystopian"]
+      }
+    ],
+    "employees": [
+      {
+        "name": "John Doe",
+        "position": "Manager",
+        "fullTime": true,
+        "hourlyRate": 20.5
+      },
+      {
+        "name": "Jane Smith",
+        "position": "Cashier",
+        "fullTime": false,
+        "hourlyRate": 15.0
+      }
+    ]
+  }
+}

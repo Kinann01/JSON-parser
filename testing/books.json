@@ -1,0 +1,96 @@
+
+{
+    "books": [
+        {
+            "id": 1,
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "isbn": [
+                "0446310786",
+                "9780446310789"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "1984",
+            "author": "George Orwell",
+            "isbn": [
+                "4515249340",
+                "9780451524935",
+                "12039120849"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "isbn": [
+                "9780316769488",
+                "316769487"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "isbn": [
+                "7432735670",
+                "9780743273565"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Moby Dick",
+            "author": "Herman Melville",
+            "isbn": [
+                "1503280780",
+                "9781503280786"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "The Odyssey",
+            "author": "Homer",
+            "isbn": [
+                "1402688630",
+                "9780140268867"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Ulysses",
+            "author": "James Joyce",
+            "isbn": [
+                "1514298134",
+                "9781514298134"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "The Divine Comedy",
+            "author": "Dante Alighieri",
+            "isbn": [
+                "1424372200",
+                "9780142437223"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Don Quixote",
+            "author": "Miguel de Cervantes",
+            "isbn": [
+                "1424372390",
+                "9780142437230"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "The Brothers Karamazov",
+            "author": "Fyodor Dostoevsky",
+            "isbn": [
+                "3745283730",
+                "9780374528379"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+  "bookstore": {
+    "books": [
+      {
+        "genres": [
+          "Classic",
+          "Coming of Age"
+        ],
+        "isbn": "9780446310789",
+        "author": "Harper Lee",
+        "copies": 10,
+        "title": "To Kill a Mockingbird"
+      },
+      {
+        "genres": [
+          "Classic",
+          "Dystopian"
+        ],
+        "isbn": "9780451524935",
+        "author": "George Orwell",
+        "copies": 3,
+        "title": "1984"
+      }
+    ],
+    "employees": [
+      {
+        "hourlyRate": 20.5,
+        "fullTime": true,
+        "position": "Manager",
+        "name": "John Doe"
+      },
+      {
+        "hourlyRate": 15,
+        "fullTime": false,
+        "position": "Cashier",
+        "name": "Jane Smith"
+      },
+      {
+        "hourlyRate": 18,
+        "fullTime": true,
+        "position": "Assistant",
+        "name": "James Clone"
+      }
+    ],
+    "address": {
+      "street": "123 Main St",
+      "state": "NY",
+      "zip": "10001",
+      "city": "Fiction Town"
+    },
+    "name": "The Reading Corner"
+  }
+}
