@@ -17,14 +17,14 @@ To install the JSON Parser API, you will need a C++17 (or later) compiler.
 
 ### How to compile?
 
-    1) The provided CMakeLists.txt file can be used to build the project
-    2) g++ -std=c++17 src/main.cpp src/JsonValue.cpp src/JsonParser.cpp
+    After cloning the repository, navigate to the root of the reposity and you can build the project as follows:
+
+        Option 1) The provided CMakeLists.txt file can be used to build the project
+        Option 2) g++ -std=c++17 src/main/main.cpp src/JsonValue.cpp src/JsonParser.cpp
 
 ## Usage
 
-To use the JSON Parser API, you will need to include the `JsonValue.h` and `JsonParser.h` header files in your project. The primary functionalities are exposed through the `JsonValue` and `JsonParser` classes.
-
-Here are the main methods:
+Here are the main that are supported:
 
 - `void JsonValue::modifyJson(const pathInJson & path, JsonValue&& newValue, bool isArray = false)`: This function is used to modify an existing value in your JSON data. The `path` parameter is a vector of variants (either a string or a size_t), which describes the path through the JSON data to the element you want to modify. `newValue` is the new value that you want to set. The `isArray` flag should be set to true if the parent of the element you're modifying is an array.
 
@@ -60,4 +60,4 @@ parser.printToFile("../testing/books_updated.json", parsed_data);
 
 ## Testing
 
-- Access the `src/main.cpp` file. It contains 3 examples that test the correctness. All the necessary comments for elaboration are provided.
+- Access the `src/main/main.cpp` file. It contains 3 examples that test the correctness. All the necessary comments for elaboration are provided.

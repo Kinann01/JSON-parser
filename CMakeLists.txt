@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
-project(JSONParser)
+project(JsonParser)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CSS_STANDARD_REQUIRED True)
 
-add_executable(JSONParser src/main.cpp src/JsonValue.cpp src/JsonParser.cpp)
+add_subdirectory(src)
+include_directories(include)
+add_compile_options(-Wall -Wextra)

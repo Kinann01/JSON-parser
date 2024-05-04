@@ -1,10 +1,4 @@
-#ifndef JSONVALUE_
-#include "JsonValue.h"
-#endif
-
-#ifndef JSONPARSER_
-#include "JsonParser.h"
-#endif
+#include "../../include/JsonParser.h"
 
 // Main methods supported
 // 1) add a key : value to an object
@@ -31,7 +25,6 @@ void companiesJSON() {
 
     // Final result
     parser.printToFile("../testing/companies_updated.json", parsed_data);
-
 }
 
 void booksJSON(){
@@ -43,7 +36,6 @@ void booksJSON(){
 
     // Read the JSON from a file and parse it
     JsonValue parsed_data = parser.readFromFile(filename);
-
 
     // Here we will modify the first ISBN for the third book in our JSON (books.json).
     // Currently, the first ISBN for the third book is 0316769487
@@ -97,9 +89,7 @@ void bookStoreJson(){
 
     // Final result
     parser.printToFile("../testing/bookstore_updated.json", parsed_data);
-
 }
-
 
 int main() {
 
@@ -120,7 +110,6 @@ int main() {
     try {
         bookStoreJson();
     }
-
     catch (std::exception& e){
         std::cout<<e.what() << " in bookStoreJson" <<std::endl;
     }

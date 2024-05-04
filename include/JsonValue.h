@@ -1,29 +1,12 @@
-#ifndef JSONPARSER_JSONVALUE_H
-#define JSONPARSER_JSONVALUE_H
+#ifndef JSONVALUE_H
+#define JSONVALUE_H
 
-#ifndef UNORDERED_SET_
-#include <unordered_map>
-#endif
-
-#ifndef STRING_
-#include <string>
-#endif
-
-#ifndef VARIANT_
 #include <variant>
-#endif
-
-#ifndef VECTOR_
+#include <unordered_map>
 #include <vector>
-#endif
-
-#ifndef IOSTREAM_
 #include <iostream>
-#endif
-
-#ifndef EXCEPTION_
 #include <stdexcept>
-#endif
+#include <string>
 
 class JsonValue {
 public:
@@ -33,9 +16,7 @@ public:
 	using JsonNumber = double;
 	using JsonBool = bool;
 	using JsonNull = std::nullptr_t;
-
     using pathInJson = std::vector<std::variant<std::size_t, std::string>>;
-
 
 private:
 	using ValueType = std::variant<JsonObject, JsonArray, JsonString, JsonNumber, JsonBool, JsonNull>;
@@ -52,7 +33,6 @@ public:
 	explicit JsonValue(JsonBool b) : value(b) {}
 	explicit JsonValue(JsonNull) : value(nullptr) {}
 
-
     // holding types
     bool isBool() const;
     bool isNumber() const;
@@ -61,14 +41,12 @@ public:
     bool isObject() const;
     bool isNull() const;
 
-
     // Getter methods
      const JsonObject& getAsObject() const;
      const JsonArray& getAsArray() const;
      const JsonString& getAsString() const;
      JsonNumber getAsNumber() const;
      JsonBool getAsBool() const;
-
 
     JsonObject& getAsObject();
     JsonArray& getAsArray();
@@ -94,4 +72,4 @@ public:
     // OTHER METHODS CAN BE ADDED
 };
 
-#endif //JSONPARSER_JSONVALUE_H
+#endif

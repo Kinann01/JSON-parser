@@ -1,6 +1,5 @@
-#ifndef JSONVALUE_
-#include "JsonValue.h"
-#endif
+#include "../include/JsonValue.h"
+
 
 
 bool JsonValue::isBool() const {
@@ -25,9 +24,7 @@ bool JsonValue::isNull() const {
     return std::holds_alternative<JsonNull>(value);
 }
 
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
+
 
 const JsonValue::JsonObject& JsonValue::getAsObject() const {
     if (isObject()){
@@ -103,12 +100,6 @@ JsonValue::JsonString& JsonValue::getAsString() {
     return std::get<JsonString>(value);
 }
 
-
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-
-
 JsonValue& JsonValue::operator[](const JsonString& str) {
     if (!isObject()){
         throw std::runtime_error("JsonValue is not an Object");
@@ -155,13 +146,6 @@ const JsonValue& JsonValue::operator[](std::size_t idx) const{
     return getter[idx];
 
 }
-
-
-
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-
 
 void JsonValue::readablePrint(std::ostream &os, int indent) const {
     {
@@ -212,8 +196,6 @@ void JsonValue::readablePrint(std::ostream &os, int indent) const {
 }
 
 // -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
 
 void JsonValue::modifyJson(const pathInJson & path, JsonValue&& newValue, bool isArray = false) {
 
@@ -240,7 +222,6 @@ void JsonValue::modifyJson(const pathInJson & path, JsonValue&& newValue, bool i
             else if constexpr (std::is_same_v<T, std::string>) {
 
                 if (current->isObject()){
-                    // access object
                     current = &(*current)[arg];
                 }
                 else {
@@ -272,11 +253,6 @@ void JsonValue::modifyJson(const pathInJson & path, JsonValue&& newValue, bool i
         }
     }
 }
-
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-
 
 void JsonValue::addToObject(const pathInJson &path, const std::string& newKey, JsonValue&& newValue) {
 

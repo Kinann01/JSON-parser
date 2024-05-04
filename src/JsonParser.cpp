@@ -1,8 +1,6 @@
-#ifndef JSONPARSER_
-#include "JsonParser.h"
-#endif
-
-
+#include "../include/JsonParser.h"
+#include <fstream>
+#include <iostream>
 
 JsonValue JsonParser::parse(const std::vector<Token> & tokens){
 
@@ -86,7 +84,7 @@ JsonValue JsonParser::parseValue(const std::vector<Token> &tokens, size_t &index
 }
 
 JsonValue::JsonArray JsonParser::parseArray(const std::vector<Token> &tokens, size_t &index) {
-    JsonValue::JsonArray  arr;
+    JsonValue::JsonArray arr;
 
     while (index < tokens.size() && tokens[index].type != TokenType::ArrayClose) {
         arr.push_back(parseValue(tokens, index));
@@ -134,4 +132,82 @@ JsonValue::JsonObject JsonParser::parseObject(const std::vector<Token> &tokens, 
 
     index++; // Skip the closing brace
     return obj;
+}
+
+std::vector<JsonParser::Token> JsonParser::tokenizeJSONfile(std::ifstream & stream) {
+    std::vector<Token> tokens;
+    std::string buffer;
+
+    // Read file character by character
+    char c;
+    while (stream.get(c)) {
+        // get rid of white spaces
+        if (isspace(c)){
+            continue;
+        }
+
+        // Switch for types of tokens
+        switch (c) {
+            case '{':
+                tokens.push_back({TokenType::ObjectOpen, "{"});
+                break;
+            case '}':
+                tokens.push_back({TokenType::ObjectClose, "}"});
+                break;
+            case '[':
+                tokens.push_back({TokenType::ArrayOpen, "["});
+                break;
+            case ']':
+                tokens.push_back({TokenType::ArrayClose, "]"});
+                break;
+            case ',':
+                tokens.push_back({TokenType::Comma, ","});
+                break;
+            case ':':
+                tokens.push_back({TokenType::Colon, ":"});
+                break;
+            case '"':
+                buffer.clear();
+                while (stream.get(c) && c != '"'){
+                    if (c == '\\' && stream.peek() != EOF) {
+                        stream.get(c); // Get next character
+                        switch (c) {
+                            case '\\': buffer.push_back('\\'); break;
+                            case '"': buffer.push_back('"'); break;
+                            case 'n': buffer.push_back('\n'); break;
+                            case 't': buffer.push_back('\t'); break;
+                            default: buffer.push_back(c); break;
+                        }
+                    } else {
+                        buffer.push_back(c);
+                    }
+                }
+                tokens.push_back({TokenType::String, buffer});
+                break;
+
+            default:
+                buffer.clear();
+                while (!isspace(c) && c != ',' && c != ':' && c != '{' && c != '}'
+                       && c != '[' && c != ']' && stream.peek() != EOF) {
+
+                    buffer.push_back(c);
+                    stream.get(c);
+                }
+                // Step back to process the delimiter in the next iteration
+                stream.unget();
+
+                if (buffer == "true") {
+                    tokens.push_back({TokenType::True, buffer});
+                } else if (buffer == "false") {
+                    tokens.push_back({TokenType::False, buffer});
+                } else if (buffer == "null") {
+                    tokens.push_back({TokenType::Null, buffer});
+                } else {
+                    tokens.push_back({TokenType::Number, buffer});
+                }
+                break;
+        }
+    }
+
+    return tokens;
 }

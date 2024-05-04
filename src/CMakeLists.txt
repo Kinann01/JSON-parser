@@ -1,0 +1,1 @@
+add_executable(JsonParser main/main.cpp JsonParser.cpp JsonValue.cpp)
